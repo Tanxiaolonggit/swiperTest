@@ -18,7 +18,7 @@
           <!-- 添加的图片 -->
           <swiper-slide  class="swiperSlide" v-for='(item,index) in houseList' :key='"img"+index'>
             <div>
-              <img @click="houseDetail(item.id)" class="swiper-slide" :src="item.house_img" />
+              <img @click="houseDetail(item.house_ids)" class="swiper-slide" :src="item.house_img" />
             </div>
           </swiper-slide>
         </swiper>
@@ -87,9 +87,6 @@ export default {
           slideChange:function(e){
             //保存切换下标到全局
             self.checkType=this.realIndex
-          },
-          tap:function(e){
-            console.log(e)
           }
         }
       }
@@ -145,6 +142,9 @@ export default {
           duration:1000
         });
       }else{
+        // 百度统计
+        _hmt.push(['_trackEvent', '验证码','点击获取验证码']);
+        // 百度统计结束
         let captcha1 = new TencentCaptcha('2012059542',(res)=>{
           //定时器
           let timer;
@@ -201,6 +201,9 @@ export default {
           userId:''
         })).then((res)=>{
           if(res.data.sta==200){
+            // 百度统计
+            _hmt.push(['_trackEvent', '优惠券','优惠券领取成功']);
+            // 百度统计结束
             this.$message({
               message: '领取成功，请前往住多多APP查看',
               center: true,

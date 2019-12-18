@@ -12,8 +12,8 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 // axios.defaults.baseURL = 'http://test.zhudd.cn/'
-// axios.defaults.baseURL = 'https://apis.zhudd.com/'
-axios.defaults.baseURL = 'http://192.168.1.160/'
+axios.defaults.baseURL = 'https://apis.zhudd.com/'
+// axios.defaults.baseURL = 'http://192.168.1.160/'
 new Vue({
   render: h => h(App),
 }).$mount('#app')
